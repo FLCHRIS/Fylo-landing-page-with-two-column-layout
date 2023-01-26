@@ -23,7 +23,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 ### Links
 
@@ -40,6 +40,9 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - JS
+- BEM
+- AOS
+- SASS/SCSS
 
 ## Author
 

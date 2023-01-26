@@ -1,35 +1,35 @@
-const inputSubmit = document.querySelectorAll('.input-submit');
+const formOneSubmit = document.getElementById('formOne__submit');
+const accessSubmit = document.getElementById('access__submit');
 
-inputSubmit.forEach(item => {
-    if(item.value === 'Get Started For Free'){
-        item.addEventListener('click', (e)=>{
-            e.preventDefault();
-            const inputText = document.querySelector('.sectionThree-input-text');
-            const msgError = document.querySelector('.sectionThree-error');
-            if(inputText.value === ''){
-                inputText.style.border = '1px solid #b40909';
-                msgError.classList.toggle('sectionOne-error-view');
-                setTimeout(()=>{
-                    inputText.style.border = '1px solid hsl(243, 87%, 12%)';
-                    msgError.classList.toggle('sectionOne-error-view');
-                }, 2000);
-            }     
-            inputText.value = '';
-        });
-    }else if(item.value === 'Get Started'){
-        item.addEventListener('click', (e)=>{
-            e.preventDefault();
-            const inputText = document.querySelector('.input-text');
-            const msgError = document.querySelector('.sectionOne-error');
-            if(inputText.value === ''){
-                inputText.style.border = '1px solid #b40909';
-                msgError.classList.toggle('sectionOne-error-view');
-                setTimeout(()=>{
-                    inputText.style.border = '1px solid hsl(243, 87%, 12%)';
-                    msgError.classList.toggle('sectionOne-error-view');
-                }, 2000);
-            }     
-            inputText.value = '';
-        });
+let validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+formOneSubmit.addEventListener('click', e => {
+    e.preventDefault();
+    const email = document.getElementById('formOne__email');
+    if(email.value != '' && validEmail.test(email.value)) {
+        email.style.border = '1px solid #b31111';
+        document.querySelector('.email-msg').style.display = 'block';
+        
+        setTimeout(()=> {
+            email.value = ''
+            email.style.border = '1px solid hsl(238, 22%, 44%)';
+            document.querySelector('.email-msg').style.display = 'none';
+        }, 2000);
     }
-})
+});
+accessSubmit.addEventListener('click', e => {
+    e.preventDefault();
+    const email = document.getElementById('access__email');
+    if(email.value != '' && validEmail.test(email.value)) {
+        email.style.border = '1px solid #b31111';
+        document.querySelector('.access__msg').style.display = 'block';
+        
+        setTimeout(()=> {
+            email.value = ''
+            email.style.border = '1px solid hsl(238, 22%, 44%)';
+            document.querySelector('.access__msg').style.display = 'none';
+        }, 2000);
+    }
+});
+
+AOS.init();
